@@ -29,8 +29,8 @@ class Ingredient_search : AppCompatActivity() {
         setContentView(R.layout.activity_ingredient_search)
         supportActionBar?.hide()
 
-        val ingredient_in = findViewById<EditText>(R.id.ingredient_in)
-        val retrieve = findViewById<Button>(R.id.retrieve)
+        val ingredient_in = findViewById<EditText>(R.id.name_in)
+        val retrieve = findViewById<Button>(R.id.add)
         add_db = findViewById(R.id.add_db)
         if (db_visible == false) {
             add_db.visibility = View.INVISIBLE
@@ -42,7 +42,11 @@ class Ingredient_search : AppCompatActivity() {
 
         add_db.setOnClickListener {
             if (arr.isEmpty()) {
-                Toast.makeText(this, "There is nothing to enter", Toast.LENGTH_SHORT).show()
+                Toast.makeText(
+                    this,
+                    "already added search for a new ingredient",
+                    Toast.LENGTH_SHORT
+                ).show()
             } else {
                 db_add(this)
             }
@@ -51,7 +55,7 @@ class Ingredient_search : AppCompatActivity() {
 
         retrieve.setOnClickListener {
             if (ingredient_in.text.isEmpty()) {
-                Toast.makeText(this, "enter something ", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, "Enter an ingredient to continue", Toast.LENGTH_SHORT).show()
             } else {
                 Toast.makeText(this, "The word is ${ingredient_in.text}", Toast.LENGTH_SHORT).show()
                 out.text = "Fetching meals from API..."
@@ -96,56 +100,34 @@ class Ingredient_search : AppCompatActivity() {
 
         client.newCall(request).enqueue(object : Callback {
             override fun onFailure(call: Call, e: IOException) {
-                // Handle the error
+                Toast.makeText(context, "Ingredient not found", Toast.LENGTH_SHORT).show()
             }
 
             override fun onResponse(call: Call, response: Response) {
                 val jsonStr = response.body?.string()
                 val jsonObj = JSONObject(jsonStr.toString())
-                val mealsArray = jsonObj.getJSONArray("meals")
+                val meals = jsonObj.optJSONArray("meals")
 
-                for (i in 0 until mealsArray.length()) {
-                    val mealObj = mealsArray.getJSONObject(i)
+                if (meals == null) {
+                    // The meals array is null
+                    Log.d("activity","meals is null")
+                    runOnUiThread {
+                        Toast.makeText(context, "Ingredient not found", Toast.LENGTH_SHORT).show()
+                    }
+                } else {
+                    // The meals array is not null
+                    for (i in 0 until meals.length()) {
+                        val mealObj = meals.getJSONObject(i)
 
-                    // Extract the values you need from the meal object and store them in variables
-                    val mealId = mealObj.getString("idMeal")
-                    get_meal_with_id(mealId, out, context)
+                        // Extract the values you need from the meal object and store them in variables
+                        val mealId = mealObj.getString("idMeal")
+                        get_meal_with_id(mealId, out, context)
+                    }
                 }
             }
+
         })
     }
-
-    private fun fetch_details_fordb(ingredient_in: EditText, context: Context) {
-        val url = "https://themealdb.com/api/json/v1/1/filter.php?i=${ingredient_in.text}"
-        Log.d("activity", url)
-        val client = OkHttpClient()
-        val request = Request.Builder().url(url).build()
-
-        runOnUiThread {
-            out.text = " "
-        }
-
-        client.newCall(request).enqueue(object : Callback {
-            override fun onFailure(call: Call, e: IOException) {
-                // Handle the error
-            }
-
-            override fun onResponse(call: Call, response: Response) {
-                val jsonStr = response.body?.string()
-                val jsonObj = JSONObject(jsonStr.toString())
-                val mealsArray = jsonObj.getJSONArray("meals")
-
-                for (i in 0 until mealsArray.length()) {
-                    val mealObj = mealsArray.getJSONObject(i)
-
-                    // Extract the values you need from the meal object and store them in variables
-                    val mealId = mealObj.getString("idMeal")
-                    get_meal_with_id(mealId, out, context)
-                }
-            }
-        })
-    }
-
 
 
     private fun get_meal_with_id(mealId: String, out: TextView, context: Context) {
@@ -154,7 +136,7 @@ class Ingredient_search : AppCompatActivity() {
         val request = Request.Builder().url(url).build()
         client.newCall(request).enqueue(object : Callback {
             override fun onFailure(call: Call, e: IOException) {
-                // Handle the error
+                Toast.makeText(context, "Error", Toast.LENGTH_SHORT).show()
             }
 
             override fun onResponse(call: Call, response: Response) {
@@ -165,7 +147,6 @@ class Ingredient_search : AppCompatActivity() {
                     val mealObj = mealsArray.getJSONObject(i)
 
                     // Extract the values you need from the meal object and store them in variables
-                    val mealid = mealObj.getString("idMeal")
                     val mealName = mealObj.getString("strMeal")
                     val drinkAlternate = mealObj.getString("strDrinkAlternate")
                     val category = mealObj.getString("strCategory")
@@ -698,62 +679,67 @@ class Ingredient_search : AppCompatActivity() {
                     try {
                         mealDao.insertUsers(
                             Meals(
-                                arr[0+count2].toInt(),
-                                arr[1+count2],
-                                arr[2+count2],
-                                arr[3+count2],
-                                arr[4+count2],
-                                arr[5+count2],
-                                arr[6+count2],
-                                arr[7+count2],
-                                arr[8+count2],
-                                arr[9+count2],
-                                arr[10+count2],
-                                arr[11+count2],
-                                arr[12+count2],
-                                arr[13+count2],
-                                arr[14+count2],
-                                arr[15+count2],
-                                arr[16+count2],
-                                arr[17+count2],
-                                arr[18+count2],
-                                arr[19+count2],
-                                arr[20+count2],
-                                arr[21+count2],
-                                arr[22+count2],
-                                arr[23+count2],
-                                arr[24+count2],
-                                arr[25+count2],
-                                arr[26+count2],
-                                arr[27+count2],
-                                arr[28+count2],
-                                arr[29+count2],
-                                arr[30+count2],
-                                arr[31+count2],
-                                arr[32+count2],
-                                arr[33+count2],
-                                arr[34+count2],
-                                arr[35+count2],
-                                arr[36+count2],
-                                arr[37+count2],
-                                arr[38+count2],
-                                arr[39+count2],
-                                arr[40+count2],
-                                arr[41+count2],
-                                arr[42+count2],
-                                arr[43+count2],
-                                arr[44+count2],
-                                arr[45+count2],
-                                arr[46+count2],
-                                arr[47+count2],
-                                arr[48+count2],
+                                arr[0 + count2].toInt(),
+                                arr[1 + count2].lowercase(),
+                                arr[2 + count2],
+                                arr[3 + count2],
+                                arr[4 + count2],
+                                arr[5 + count2],
+                                arr[6 + count2],
+                                arr[7 + count2],
+                                arr[8 + count2],
+                                arr[9 + count2].lowercase(),
+                                arr[10 + count2].lowercase(),
+                                arr[11 + count2].lowercase(),
+                                arr[12 + count2].lowercase(),
+                                arr[13 + count2].lowercase(),
+                                arr[14 + count2].lowercase(),
+                                arr[15 + count2].lowercase(),
+                                arr[16 + count2].lowercase(),
+                                arr[17 + count2].lowercase(),
+                                arr[18 + count2].lowercase(),
+                                arr[19 + count2].lowercase(),
+                                arr[20 + count2].lowercase(),
+                                arr[21 + count2].lowercase(),
+                                arr[22 + count2].lowercase(),
+                                arr[23 + count2].lowercase(),
+                                arr[24 + count2].lowercase(),
+                                arr[25 + count2].lowercase(),
+                                arr[26 + count2].lowercase(),
+                                arr[27 + count2].lowercase(),
+                                arr[28 + count2].lowercase(),
+                                arr[29 + count2],
+                                arr[30 + count2],
+                                arr[31 + count2],
+                                arr[32 + count2],
+                                arr[33 + count2],
+                                arr[34 + count2],
+                                arr[35 + count2],
+                                arr[36 + count2],
+                                arr[37 + count2],
+                                arr[38 + count2],
+                                arr[39 + count2],
+                                arr[40 + count2],
+                                arr[41 + count2],
+                                arr[42 + count2],
+                                arr[43 + count2],
+                                arr[44 + count2],
+                                arr[45 + count2],
+                                arr[46 + count2],
+                                arr[47 + count2],
+                                arr[48 + count2],
                             )
                         )
                         Log.d("activity", "added")
-                        Toast.makeText(context, "Added ${arr[1+count2]}", Toast.LENGTH_SHORT).show()
+                        Toast.makeText(context, "Added ${arr[1 + count2]}", Toast.LENGTH_SHORT)
+                            .show()
                     } catch (e: Exception) {
                         Log.d("activity", "error")
-                        Toast.makeText(context, "error adding ${arr[1+count2]}", Toast.LENGTH_SHORT)
+                        Toast.makeText(
+                            context,
+                            "error adding ${arr[1 + count2]}",
+                            Toast.LENGTH_SHORT
+                        )
                             .show()
                     }
                     count2 += 49

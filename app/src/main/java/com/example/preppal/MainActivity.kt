@@ -25,6 +25,7 @@ class MainActivity : AppCompatActivity() {
 
         val addbtn = findViewById<Button>(R.id.ADD)
         val search_ingre = findViewById<Button>(R.id.search_ingredient)
+        val search = findViewById<Button>(R.id.Search)
         val db = Room.databaseBuilder(this, AppDatabase::class.java, "MealDatabase").build()
         val mealDao = db.mealDao()
         addbtn.setOnClickListener {
@@ -34,6 +35,10 @@ class MainActivity : AppCompatActivity() {
             val newact = Intent(this, Ingredient_search::class.java)
             startActivity(newact)
         }
+        search.setOnClickListener {
+            val next = Intent(this, Search_food::class.java)
+            startActivity(next)
+        }
     }
 
     private fun add(mealDao: MealDao, context: Context) {
@@ -41,21 +46,21 @@ class MainActivity : AppCompatActivity() {
             launch {
                 val meal1 = arrayOf(
                     "52949",
-                    "Sweet and Sour Pork", "null", "Pork", "Chinese",
+                    "Sweet and Sour Pork".lowercase(), "null", "Pork", "Chinese",
                     "Preparation\\r\\n1. Crack the egg into a bowl. Separate the egg white and yolk.\\r\\n\\r\\nSweet and Sour Pork\\r\\n2. Slice the pork tenderloin into ips.\\r\\n\\r\\n3. Prepare the marinade using a pinch of salt, one teaspoon of starch, two teaspoons of light soy sauce, and an egg white.\\r\\n\\r\\n4. Marinade the pork ips for about 20 minutes.\\r\\n\\r\\n5. Put the remaining starch in a bowl. Add some water and vinegar to make a starchy sauce.\\r\\n\\r\\nSweet and Sour Pork\\r\\nCooking Inuctions\\r\\n1. Pour the cooking oil into a wok and heat to 190\\u00b0C (375\\u00b0F). Add the marinated pork ips and fry them until they turn brown. Remove the cooked pork from the wok and place on a plate.\\r\\n\\r\\n2. Leave some oil in the wok. Put the tomato sauce and white sugar into the wok, and heat until the oil and sauce are fully combined.\\r\\n\\r\\n3. Add some water to the wok and thoroughly heat the sweet and sour sauce before adding the pork ips to it.\\r\\n\\r\\n4. Pour in the starchy sauce. Stir-fry all the ingredients until the pork and sauce are thoroughly mixed together.\\r\\n\\r\\n5. Serve on a plate and add some coriander for decoration.",
                     "https://www.themealdb.com/images/media/meals/1529442316.jpg",
                     "Sweet",
                     "https://www.youtube.com/watch?v=mdaBIhgEAMo",
-                    "Pork",
-                    "Egg",
-                    "Water",
-                    "Salt",
-                    "Sugar",
-                    "Soy Sauce",
-                    "Starch",
-                    "Tomato Puree",
-                    "Vinegar",
-                    "Coriander",
+                    "Pork".lowercase(),
+                    "Egg".lowercase(),
+                    "Water".lowercase(),
+                    "Salt".lowercase(),
+                    "Sugar".lowercase(),
+                    "Soy Sauce".lowercase(),
+                    "Starch".lowercase(),
+                    "Tomato Puree".lowercase(),
+                    "Vinegar".lowercase(),
+                    "Coriander".lowercase(),
                     "null",
                     "null",
                     "null",
@@ -89,7 +94,7 @@ class MainActivity : AppCompatActivity() {
                 )
                 val meal2 = arrayOf(
                     "52920",
-                    "Chicken Marengo",
+                    "Chicken Marengo".lowercase(),
                     "null",
                     "Chicken",
                     "French",
@@ -97,13 +102,13 @@ class MainActivity : AppCompatActivity() {
                     "https://www.themealdb.com/images/media/meals/qpxvuq1511798906.jpg",
                     "null",
                     "https://www.youtube.com/watch?v=U33HYUr-0Fw",
-                    "Olive Oil",
-                    "Mushrooms",
-                    "Chicken Legs",
-                    "Passata",
-                    "Chicken Stock Cube",
-                    "Black Olives",
-                    "Parsley",
+                    "Olive Oil".lowercase(),
+                    "Mushrooms".lowercase(),
+                    "Chicken Legs".lowercase(),
+                    "Passata".lowercase(),
+                    "Chicken Stock Cube".lowercase(),
+                    "Black Olives".lowercase(),
+                    "Parsley".lowercase(),
                     "null",
                     "null",
                     "null",
@@ -141,22 +146,22 @@ class MainActivity : AppCompatActivity() {
 
                 val meal3 = arrayOf(
                     "52997",
-                    "Beef Banh Mi Bowls with Sriracha Mayo, Carrot & Pickled Cucumber",
+                    "Beef Banh Mi Bowls with Sriracha Mayo, Carrot & Pickled Cucumber".lowercase(),
                     "null",
                     "Beef",
                     "Vietnamese",
                     "Add'l ingredients: mayonnaise, siracha\\r\\n\\r\\n1\\r\\n\\r\\nPlace rice in a fine-mesh sieve and rinse until water runs clear. Add to a small pot with 1 cup water (2 cups for 4 servings) and a pinch of salt. Bring to a boil, then cover and reduce heat to low. Cook until rice is tender, 15 minutes. Keep covered off heat for at least 10 minutes or until ready to serve.\\r\\n\\r\\n2\\r\\n\\r\\nMeanwhile, wash and dry all produce. Peel and finely chop garlic. Zest and quarter lime (for 4 servings, zest 1 lime and quarter both). Trim and halve cucumber lengthwise; thinly slice crosswise into half-moons. Halve, peel, and medium dice onion. Trim, peel, and grate carrot.\\r\\n\\r\\n3\\r\\n\\r\\nIn a medium bowl, combine cucumber, juice from half the lime, \\u00bc tsp sugar (\\u00bd tsp for 4 servings), and a pinch of salt. In a small bowl, combine mayonnaise, a pinch of garlic, a squeeze of lime juice, and as much sriracha as you\\u2019d like. Season with salt and pepper.\\r\\n\\r\\n4\\r\\n\\r\\nHeat a drizzle of oil in a large pan over medium-high heat. Add onion and cook, stirring, until softened, 4-5 minutes. Add beef, remaining garlic, and 2 tsp sugar (4 tsp for 4 servings). Cook, breaking up meat into pieces, until beef is browned and cooked through, 4-5 minutes. Stir in soy sauce. Turn off heat; taste and season with salt and pepper.\\r\\n\\r\\n5\\r\\n\\r\\nFluff rice with a fork; stir in lime zest and 1 TBSP butter. Divide rice between bowls. Arrange beef, grated carrot, and pickled cucumber on top. Top with a squeeze of lime juice. Drizzle with sriracha mayo.",
                     "https://www.themealdb.com/images/media/meals/z0ageb1583189517.jpg",
-                    "null",
-                    "null",
-                    "Rice",
-                    "Onion",
-                    "Lime",
-                    "Garlic Clove",
-                    "Cucumber",
-                    "Carrots",
-                    "Ground Beef",
-                    "Soy Sauce",
+                    "null".lowercase(),
+                    "null".lowercase(),
+                    "Rice".lowercase(),
+                    "Onion".lowercase(),
+                    "Lime".lowercase(),
+                    "Garlic Clove".lowercase(),
+                    "Cucumber".lowercase(),
+                    "Carrots".lowercase(),
+                    "Ground Beef".lowercase(),
+                    "Soy Sauce".lowercase(),
                     "null",
                     "null",
                     "null",
@@ -192,7 +197,7 @@ class MainActivity : AppCompatActivity() {
                 )
                 val meal4 = arrayOf(
                     "52973",
-                    "Leblebi Soup",
+                    "Leblebi Soup".lowercase(),
                     "null",
                     "Vegetarian",
                     "Tunisian",
@@ -200,16 +205,16 @@ class MainActivity : AppCompatActivity() {
                     "https://www.themealdb.com/images/media/meals/x2fw9e1560460636.jpg",
                     "Soup",
                     "https://www.youtube.com/watch?v=BgRifcCwinY",
-                    "Olive Oil",
-                    "Onion",
-                    "Chickpeas",
-                    "Vegetable Stock",
-                    "Cumin",
-                    "Garlic",
-                    "Salt",
-                    "Harissa Spice",
-                    "Pepper",
-                    "Lime",
+                    "Olive Oil".lowercase(),
+                    "Onion".lowercase(),
+                    "Chickpeas".lowercase(),
+                    "Vegetable Stock".lowercase(),
+                    "Cumin".lowercase(),
+                    "Garlic".lowercase(),
+                    "Salt".lowercase(),
+                    "Harissa Spice".lowercase(),
+                    "Pepper".lowercase(),
+                    "Lime".lowercase(),
                     "null",
                     "null",
                     "null",

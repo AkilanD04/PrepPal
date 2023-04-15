@@ -7,7 +7,7 @@
     tools:context=".Ingredient_search">
 
     <EditText
-        android:id="@+id/ingredient_in"
+        android:id="@+id/name_in"
         android:layout_width="285dp"
         android:layout_height="51dp"
         android:ems="10"
@@ -23,7 +23,7 @@
         app:layout_constraintVertical_bias="0.023" />
 
     <Button
-        android:id="@+id/retrieve"
+        android:id="@+id/add"
         android:layout_width="wrap_content"
         android:layout_height="51dp"
         android:text="retrieve"
