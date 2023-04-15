@@ -122,160 +122,252 @@ class Ingredient_search : AppCompatActivity() {
                     val ingredient1 =
                         if (mealObj.has("strIngredient1")) {
                             val text = mealObj.getString("strIngredient1")
-                            text.ifEmpty { "null" }
+                            if (text.isEmpty() || text.trim().isEmpty()){
+                                "null"
+                            } else {
+                                text
+                            }
                         } else {
                             "null"
                         }
                     val ingredient2 =
                         if (mealObj.has("strIngredient2")) {
                             val text = mealObj.getString("strIngredient2")
-                            text.ifEmpty { "null" }
+                            if (text.isEmpty() || text.trim().isEmpty()){
+                                "null"
+                            } else {
+                                text
+                            }
                         } else {
                             "null"
                         }
                     val ingredient3 =
                         if (mealObj.has("strIngredient3")) {
                             val text = mealObj.getString("strIngredient3")
-                            text.ifEmpty { "null" }
+                            if (text.isEmpty() || text.trim().isEmpty()){
+                                "null"
+                            } else {
+                                text
+                            }
                         } else {
                             "null"
                         }
                     val ingredient4 =
                         if (mealObj.has("strIngredient4")) {
                             val text = mealObj.getString("strIngredient4")
-                            text.ifEmpty { "null" }
+                            if (text.isEmpty() || text.trim().isEmpty()){
+                                "null"
+                            } else {
+                                text
+                            }
                         } else {
                             "null"
                         }
                     val ingredient5 =
                         if (mealObj.has("strIngredient5")) {
                             val text = mealObj.getString("strIngredient5")
-                            text.ifEmpty { "null" }
+                            if (text.isEmpty() || text.trim().isEmpty()){
+                                "null"
+                            } else {
+                                text
+                            }
                         } else {
                             "null"
                         }
                     val ingredient6 =
                         if (mealObj.has("strIngredient6")) {
                             val text = mealObj.getString("strIngredient6")
-                            text.ifEmpty { "null" }
+                            if (text.isEmpty() || text.trim().isEmpty()){
+                                "null"
+                            } else {
+                                text
+                            }
                         } else {
                             "null"
                         }
                     val ingredient7 =
                         if (mealObj.has("strIngredient7")) {
                             val text = mealObj.getString("strIngredient7")
-                            text.ifEmpty { "null" }
+                            if (text.isEmpty() || text.trim().isEmpty()){
+                                "null"
+                            } else {
+                                text
+                            }
                         } else {
                             "null"
                         }
                     val ingredient8 =
                         if (mealObj.has("strIngredient8")) {
                             val text = mealObj.getString("strIngredient8")
-                            text.ifEmpty { "null" }
+                            if (text.isEmpty() || text.trim().isEmpty()){
+                                "null"
+                            } else {
+                                text
+                            }
                         } else {
                             "null"
                         }
                     val ingredient9 =
                         if (mealObj.has("strIngredient9")) {
                             val text = mealObj.getString("strIngredient9")
-                            text.ifEmpty { "null" }
+                            if (text.isEmpty() || text.trim().isEmpty()){
+                                "null"
+                            } else {
+                                text
+                            }
                         } else {
                             "null"
                         }
                     val ingredient10 = if (mealObj.has("strIngredient10")) {
                         val text = mealObj.getString("strIngredient10")
-                        text.ifEmpty { "null" }
+                        if (text.isEmpty() || text.trim().isEmpty()){
+                            "null"
+                        } else {
+                            text
+                        }
                     } else {
                         "null"
                     }
                     val ingredient11 =
                         if (mealObj.has("strIngredient11")) {
                             val text = mealObj.getString("strIngredient11")
-                            text.ifEmpty { "null" }
+                            if (text.isEmpty() || text.trim().isEmpty()){
+                                "null"
+                            } else {
+                                text
+                            }
                         } else {
                             "null"
                         }
                     val ingredient12 =
                         if (mealObj.has("strIngredient12")) {
                             val text = mealObj.getString("strIngredient12")
-                            text.ifEmpty { "null" }
+                            if (text.isEmpty() || text.trim().isEmpty()){
+                                "null"
+                            } else {
+                                text
+                            }
                         } else {
                             "null"
                         }
                     val ingredient13 =
                         if (mealObj.has("strIngredient13")) {
                             val text = mealObj.getString("strIngredient13")
-                            text.ifEmpty { "null" }
+                            if (text.isEmpty() || text.trim().isEmpty()){
+                                "null"
+                            } else {
+                                text
+                            }
                         } else {
                             "null"
                         }
                     val ingredient14 =
                         if (mealObj.has("strIngredient14")) {
                             val text = mealObj.getString("strIngredient14")
-                            text.ifEmpty { "null" }
+                            if (text.isEmpty() || text.trim().isEmpty()){
+                                "null"
+                            } else {
+                                text
+                            }
                         } else {
                             "null"
                         }
                     val ingredient15 =
                         if (mealObj.has("strIngredient15")) {
                             val text = mealObj.getString("strIngredient15")
-                            text.ifEmpty { "null" }
+                            if (text.isEmpty() || text.trim().isEmpty()){
+                                "null"
+                            } else {
+                                text
+                            }
                         } else {
                             "null"
                         }
                     val ingredient16 =
                         if (mealObj.has("strIngredient16")) {
                             val text = mealObj.getString("strIngredient16")
-                            text.ifEmpty { "null" }
+                            if (text.isEmpty() || text.trim().isEmpty()){
+                                "null"
+                            } else {
+                                text
+                            }
                         } else {
                             "null"
                         }
                     val ingredient17 =
                         if (mealObj.has("strIngredient17")) {
                             val text = mealObj.getString("strIngredient17")
-                            text.ifEmpty { "null" }
+                            if (text.isEmpty() || text.trim().isEmpty()){
+                                "null"
+                            } else {
+                                text
+                            }
                         } else {
                             "null"
                         }
                     val ingredient18 =
                         if (mealObj.has("strIngredient18")) {
                             val text = mealObj.getString("strIngredient18")
-                            text.ifEmpty { "null" }
+                            if (text.isEmpty() || text.trim().isEmpty()){
+                                "null"
+                            } else {
+                                text
+                            }
                         } else {
                             "null"
                         }
                     val ingredient19 =
                         if (mealObj.has("strIngredient19")) {
                             val text = mealObj.getString("strIngredient19")
-                            text.ifEmpty { "null" }
+                            if (text.isEmpty() || text.trim().isEmpty()){
+                                "null"
+                            } else {
+                                text
+                            }
                         } else {
                             "null"
                         }
                     val ingredient20 =
                         if (mealObj.has("strIngredient20")) {
                             val text = mealObj.getString("strIngredient20")
-                            text.ifEmpty { "null" }
+                            if (text.isEmpty() || text.trim().isEmpty()){
+                                "null"
+                            } else {
+                                text
+                            }
                         } else {
                             "null"
                         }
                     val measure1 =
                         if (mealObj.has("strMeasure1")) {
                             val text = mealObj.getString("strMeasure1")
-                            text.ifEmpty { "null" }
+                            if (text.isEmpty() || text.trim().isEmpty()){
+                                "null"
+                            } else {
+                                text
+                            }
                         } else {
                             "null"
                         }
                     val measure2 =
                         if (mealObj.has("strMeasure2")) {
                             val text = mealObj.getString("strMeasure2")
-                            text.ifEmpty { "null" }
+                            if (text.isEmpty() || text.trim().isEmpty()){
+                                "null"
+                            } else {
+                                text
+                            }
                         } else {
                             "null"
                         }
                     val measure3 =
                         if (mealObj.has("strMeasure3")) {
                             val text = mealObj.getString("strMeasure3")
-                            text.ifEmpty { "null" }
+                            if (text.isEmpty() || text.trim().isEmpty()){
+                                "null"
+                            } else {
+                                text
+                            }
                         } else {
                             "null"
                         }
@@ -288,57 +380,89 @@ class Ingredient_search : AppCompatActivity() {
                         }
                     val measure5 =
                         if (mealObj.has("strMeasure5")) {
-                            val strIngredient10 = mealObj.getString("strMeasure5")
-                            strIngredient10.ifEmpty { "null" }
+                            val text = mealObj.getString("strMeasure5")
+                            if (text.isEmpty() || text.trim().isEmpty()){
+                                "null"
+                            } else {
+                                text
+                            }
                         } else {
                             "null"
                         }
                     val measure6 =
                         if (mealObj.has("strMeasure6")) {
                             val text = mealObj.getString("strMeasure6")
-                            text.ifEmpty { "null" }
+                            if (text.isEmpty() || text.trim().isEmpty()){
+                                "null"
+                            } else {
+                                text
+                            }
                         } else {
                             "null"
                         }
                     val measure7 =
                         if (mealObj.has("strMeasure7")) {
                             val text = mealObj.getString("strMeasure7")
-                            text.ifEmpty { "null" }
+                            if (text.isEmpty() || text.trim().isEmpty()){
+                                "null"
+                            } else {
+                                text
+                            }
                         } else {
                             "null"
                         }
                     val measure8 =
                         if (mealObj.has("strMeasure8")) {
                             val text = mealObj.getString("strMeasure8")
-                            text.ifEmpty { "null" }
+                            if (text.isEmpty() || text.trim().isEmpty()){
+                                "null"
+                            } else {
+                                text
+                            }
                         } else {
                             "null"
                         }
                     val measure9 =
                         if (mealObj.has("strMeasure9")) {
                             val text = mealObj.getString("strMeasure9")
-                            text.ifEmpty { "null" }
+                            if (text.isEmpty() || text.trim().isEmpty()){
+                                "null"
+                            } else {
+                                text
+                            }
                         } else {
                             "null"
                         }
                     val measure10 =
                         if (mealObj.has("strMeasure10")) {
                             val text = mealObj.getString("strMeasure10")
-                            text.ifEmpty { "null" }
+                            if (text.isEmpty() || text.trim().isEmpty()){
+                                "null"
+                            } else {
+                                text
+                            }
                         } else {
                             "null"
                         }
                     val measure11 =
                         if (mealObj.has("strMeasure11")) {
                             val text = mealObj.getString("strMeasure11")
-                            text.ifEmpty { "null" }
+                            if (text.isEmpty() || text.trim().isEmpty()){
+                                "null"
+                            } else {
+                                text
+                            }
                         } else {
                             "null"
                         }
                     val measure12 =
                         if (mealObj.has("strMeasure12")) {
                             val text = mealObj.getString("strMeasure12")
-                            text.ifEmpty { "null" }
+                            if (text.isEmpty() || text.trim().isEmpty()){
+                                "null"
+                            } else {
+                                text
+                            }
                         } else {
                             "null"
                         }
@@ -352,52 +476,81 @@ class Ingredient_search : AppCompatActivity() {
                     val measure14 =
                         if (mealObj.has("strMeasure14")) {
                             val text = mealObj.getString("strMeasure14")
-                            text.ifEmpty { "null" }
+                            if (text.isEmpty() || text.trim().isEmpty()){
+                                "null"
+                            } else {
+                                text
+                            }
                         } else {
                             "null"
                         }
                     val measure15 =
                         if (mealObj.has("strMeasure15")) {
                             val text = mealObj.getString("strMeasure15")
-                            text.ifEmpty { "null" }
+                            if (text.isEmpty() || text.trim().isEmpty()){
+                                "null"
+                            } else {
+                                text
+                            }
                         } else {
                             "null"
                         }
                     val measure16 =
                         if (mealObj.has("strMeasure16")) {
                             val text = mealObj.getString("strMeasure16")
-                            text.ifEmpty { "null" }
+                            if (text.isEmpty() || text.trim().isEmpty()){
+                                "null"
+                            } else {
+                                text
+                            }
                         } else {
                             "null"
                         }
                     val measure17 =
                         if (mealObj.has("strMeasure17")) {
                             val text = mealObj.getString("strMeasure17")
-                            text.ifEmpty { "null" }
+                            if (text.isEmpty() || text.trim().isEmpty()){
+                                "null"
+                            } else {
+                                text
+                            }
                         } else {
                             "null"
                         }
                     val measure18 =
                         if (mealObj.has("strMeasure18")) {
                             val text = mealObj.getString("strMeasure18")
-                            text.ifEmpty { "null" }
+                            if (text.isEmpty() || text.trim().isEmpty()){
+                                "null"
+                            } else {
+                                text
+                            }
                         } else {
                             "null"
                         }
                     val measure19 =
                         if (mealObj.has("strMeasure19")) {
                             val text = mealObj.getString("strMeasure19")
-                            text.ifEmpty { "null" }
+                            if (text.isEmpty() || text.trim().isEmpty()){
+                                "null"
+                            } else {
+                                text
+                            }
                         } else {
                             "null"
                         }
                     val measure20 =
                         if (mealObj.has("strMeasure20")) {
                             val text = mealObj.getString("strMeasure20")
-                            text.ifEmpty { "null" }
+                            if (text.isEmpty() || text.trim().isEmpty()){
+                                "null"
+                            } else {
+                                text
+                            }
                         } else {
                             "null"
                         }
+
 
                     runOnUiThread {
                         arr += mealId
@@ -482,8 +635,8 @@ class Ingredient_search : AppCompatActivity() {
                 val count = arr.size / 49
                 Log.d("activity", "the value is: $count")
                 for (i in 1..count) {
-                    Log.d("activity","Meal id: ${arr[0]} meal name: ${arr[1]}")
-                    Log.d("activity","====================================")
+                    Log.d("activity", "Meal id: ${arr[0]} meal name: ${arr[1]}")
+                    Log.d("activity", "====================================")
                     try {
                         mealDao.insertUsers(
                             Meals(
@@ -542,7 +695,8 @@ class Ingredient_search : AppCompatActivity() {
                         Toast.makeText(context, "Added ${arr[1]} to db", Toast.LENGTH_SHORT).show()
                     } catch (e: Exception) {
                         Log.d("activity", "error")
-                        Toast.makeText(context, "error adding ${arr[1]} to db", Toast.LENGTH_SHORT).show()
+                        Toast.makeText(context, "error adding ${arr[1]} to db", Toast.LENGTH_SHORT)
+                            .show()
                     }
                     arr = arr.drop(49).toTypedArray()
                 }
