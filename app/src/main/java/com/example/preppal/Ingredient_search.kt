@@ -605,8 +605,8 @@ class Ingredient_search : AppCompatActivity() {
                         out.append(
                             "\nmeal id: $mealId \nmeal name: $mealName \nDrinkAlternate: $drinkAlternate \nCategory: $category " +
                                     "\narea: $area \ninstructions: $instructions \nmealThumb: $mealThumb \ntags: $tags " +
-                                    "\nyoutubeLink: $youtubeLink \n ingredient1: $ingredient1 \ningredient2: $ingredient2 " +
-                                    "\ningredient3: $ingredient3 \ningredient4: $ingredient4 \n ingredient5: $ingredient5 " +
+                                    "\nyoutubeLink: $youtubeLink \ningredient1: $ingredient1 \ningredient2: $ingredient2 " +
+                                    "\ningredient3: $ingredient3 \ningredient4: $ingredient4 \ningredient5: $ingredient5 " +
                                     "\ningredient6: $ingredient6 \ningredient7: $ingredient7 \ningredient8: $ingredient8 " +
                                     "\ningredient9: $ingredient9 \ningredient10: $ingredient10 \ningredient11: $ingredient11 " +
                                     "\ningredient12: $ingredient12 \ningredient13: $ingredient13 \ningredient14: $ingredient14 " +
