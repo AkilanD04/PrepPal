@@ -12,6 +12,15 @@
         android:theme="@style/Theme.PrepPal"
         tools:targetApi="31">
         <activity
+            android:name=".Search_more"
+            android:exported="false" />
+        <activity
+            android:name=".Search_food"
+            android:exported="false" />
+        <activity
+            android:name=".search"
+            android:exported="false" />
+        <activity
             android:name=".Ingredient_search"
             android:exported="false" />
         <activity
