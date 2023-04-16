@@ -14,6 +14,7 @@ import kotlinx.coroutines.runBlocking
 
 
 class Search_food : AppCompatActivity() {
+    // Declaring private properties
     private lateinit var out: TextView
 
     @SuppressLint("MissingInflatedId")
@@ -21,18 +22,27 @@ class Search_food : AppCompatActivity() {
         supportActionBar?.hide()
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_search_food)
-        out = findViewById(R.id.meals_out)
+
+        // Initializing the 'out' TextView
+        out = findViewById(R.id.text_out)
         out.text = " "
+
+        // Initializing the 'name_in' EditText and 'add_btn' Button
         val name_in = findViewById<EditText>(R.id.name_in)
         val add_btn = findViewById<Button>(R.id.add)
+
+        // Setting an onClickListener for the 'add_btn' Button
         add_btn.setOnClickListener {
+            // Checking if the 'name_in' EditText is empty
             if (name_in.text.isEmpty()) {
                 Toast.makeText(this, "Please enter something ", Toast.LENGTH_SHORT).show()
             } else {
-                if (name_in.text.toString().toIntOrNull() == null){
-                    add_name(name_in,this)
-                }
-                else{
+                // Checking if the 'name_in' EditText contains only alphabets and spaces
+                if (name_in.text.toString().toIntOrNull() == null) {
+                    // Calling the 'add_name' function to add the entered name/ingredient to the database
+                    add_name(name_in, this)
+                } else {
+                    // Displaying an error message if the entered text contains any digits
                     Toast.makeText(this, "Enter a valid ingredient/name", Toast.LENGTH_SHORT).show()
                 }
             }
@@ -40,18 +50,34 @@ class Search_food : AppCompatActivity() {
 
     }
 
+    /**
+     * Retrieves meal details from the Room database based on the user's input and displays them in the app.
+     * @param name_in the EditText view that contains the user's input
+     * @param context the context of the app
+     */
     private fun add_name(name_in: EditText, context: Context) {
+        // Clear the output TextView before displaying results
         out.text = ""
+
+        // Build the Room database and get the MealDao instance
         val db = Room.databaseBuilder(this, AppDatabase::class.java, "MealDatabase").build()
         val mealDao = db.mealDao()
         runBlocking {
             launch {
+
+                // Retrieve a list of meals based on the user's input from the MealDao
                 val meal_list: List<Meals> = mealDao.id_return(name_in.text.toString())
-                if (meal_list.isEmpty()){
+
+
+                if (meal_list.isEmpty()) {
+
+                    // Display a message if the user's input doesn't match any meal in the database
                     runOnUiThread {
                         Toast.makeText(context, "Ingredient not found", Toast.LENGTH_SHORT).show()
                     }
-                }else{
+
+                } else {
+                    // Display meal details for each meal in the list
                     for (m in meal_list) {
                         out.append(
                             "\nmeal id: ${m.id} \nmeal name: ${m.Meal} \nDrinkAlternate: ${m.DrinkAlternate} \nCategory: ${m.Category} \narea: ${m.Area} \ninstructions: ${m.Instructions}" +
@@ -73,11 +99,11 @@ class Search_food : AppCompatActivity() {
 
     override fun onSaveInstanceState(outState: Bundle) {
         super.onSaveInstanceState(outState)
-        outState.putString("out",out.text.toString())
+        outState.putString("out", out.text.toString())// save the current text in the TextView as a String in the Bundle
     }
 
     override fun onRestoreInstanceState(savedInstanceState: Bundle) {
         super.onRestoreInstanceState(savedInstanceState)
-        out.append(savedInstanceState.getString("out"))
+        out.append(savedInstanceState.getString("out"))// restore the saved text in the TextView from the Bundle
     }
 }

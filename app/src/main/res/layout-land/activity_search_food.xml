@@ -45,7 +45,7 @@
         app:layout_constraintVertical_bias="0.869">
 
         <TextView
-            android:id="@+id/meals_out"
+            android:id="@+id/text_out"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:fontFamily="sans-serif-condensed"

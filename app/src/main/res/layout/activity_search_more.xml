@@ -23,7 +23,7 @@
         app:layout_constraintVertical_bias="0.001" />
 
     <Button
-        android:id="@+id/search"
+        android:id="@+id/search_in"
         android:layout_width="wrap_content"
         android:layout_height="51dp"
         android:text="search"
@@ -46,7 +46,7 @@
         app:layout_constraintVertical_bias="0.859">
 
         <TextView
-            android:id="@+id/meals_out"
+            android:id="@+id/text_out"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:fontFamily="sans-serif-condensed"

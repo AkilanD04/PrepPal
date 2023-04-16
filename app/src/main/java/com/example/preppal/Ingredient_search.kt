@@ -37,7 +37,7 @@ class Ingredient_search : AppCompatActivity() {
         } else {
             add_db.visibility = View.VISIBLE
         }
-        out = findViewById(R.id.meals_out)
+        out = findViewById(R.id.text_out)
         out.text = " "
 
         add_db.setOnClickListener {

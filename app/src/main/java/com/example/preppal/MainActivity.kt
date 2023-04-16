@@ -16,39 +16,58 @@ import kotlinx.coroutines.runBlocking
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        // Set the layout file for this activity
         setContentView(R.layout.activity_main)
 
+        // Hide the action bar
         supportActionBar?.hide()
 
+        // Find the ImageView in the layout and load an image into it using Glide
         val imageView = findViewById<ImageView>(R.id.imageView3)
         Glide.with(this).load(R.drawable.img1).into(imageView)
 
+        // Find the buttons in the layout and set click listeners for each of them
         val addbtn = findViewById<Button>(R.id.ADD)
         val search_ingre = findViewById<Button>(R.id.search_ingredient)
         val search = findViewById<Button>(R.id.Search)
         val search_more = findViewById<Button>(R.id.search_more)
+
+        // Create an instance of the AppDatabase and get the MealDao
         val db = Room.databaseBuilder(this, AppDatabase::class.java, "MealDatabase").build()
         val mealDao = db.mealDao()
+
+        // Set a click listener for the "ADD" button that adds a meal to the database
         addbtn.setOnClickListener {
             add(mealDao, this)
         }
+
+        // Set a click listener for the "search_ingredient" button that starts the Ingredient_search activity
         search_ingre.setOnClickListener {
             val newact = Intent(this, Ingredient_search::class.java)
             startActivity(newact)
         }
+
+        // Set a click listener for the "Search" button that starts the Search_food activity
         search.setOnClickListener {
             val next = Intent(this, Search_food::class.java)
             startActivity(next)
         }
+
+        // Set a click listener for the "search_more" button that starts the Search_more activity
         search_more.setOnClickListener {
             val next = Intent(this, Search_more::class.java)
             startActivity(next)
         }
     }
 
+
     private fun add(mealDao: MealDao, context: Context) {
+        // Launch a coroutine in a blocking manner
         runBlocking {
+            // Launch a new coroutine to handle the database operation
             launch {
+                //meal data from the cw
                 val meal1 = arrayOf(
                     "52949",
                     "Sweet and Sour Pork".lowercase(), "null", "Pork", "Chinese",
@@ -148,7 +167,6 @@ class MainActivity : AppCompatActivity() {
                     "null",
                     "null",
                 )
-
                 val meal3 = arrayOf(
                     "52997",
                     "Beef Banh Mi Bowls with Sriracha Mayo, Carrot & Pickled Cucumber".lowercase(),
@@ -251,6 +269,7 @@ class MainActivity : AppCompatActivity() {
                     "null",
                     "null",
                 )
+                // Create a new instance of the Meals data class and initialize its properties using values from the meal1 array
                 val _meal1 = Meals(
                     meal1[0].toInt(),
                     Meal = meal1[1],
@@ -302,6 +321,7 @@ class MainActivity : AppCompatActivity() {
                     Measure19 = meal1[46],
                     Measure20 = meal1[48],
                 )
+                //creating for meal2, meal3 and meal4
                 val _meal2 = Meals(
                     meal2[0].toInt(),
                     Meal = meal2[1],
@@ -456,13 +476,19 @@ class MainActivity : AppCompatActivity() {
                     Measure20 = meal4[48],
                 )
                 try {
+                    // Try to insert the meals into the database using the mealDao
                     mealDao.insertUsers(_meal1, _meal2, _meal3, _meal4)
+                    // Log a message indicating that the meals were added successfully
                     Log.d("activity", "added")
+                    // Display a short toast message indicating that the meals were added successfully
                     Toast.makeText(context, "Added successfully", Toast.LENGTH_SHORT).show()
                 } catch (e: Exception) {
+                    // If an error occurs while inserting the meals, log an error message
                     Log.d("activity", "error")
+                    // Display a short toast message indicating that there was an error while adding the meals
                     Toast.makeText(context, "Error", Toast.LENGTH_SHORT).show()
                 }
+
             }
         }
     }
